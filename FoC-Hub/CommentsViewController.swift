@@ -30,15 +30,15 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         fetchData(self)
         
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        
         let cell = UITableViewCell(style: .Value1, reuseIdentifier: "cell")
         
         cell.textLabel?.text = comments[indexPath.row]
         cell.detailTextLabel?.text = commentAuthor[indexPath.row]
         return cell
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
@@ -50,7 +50,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Comments"
     }
-    
     
     @IBAction func fetchData(sender: AnyObject) {
         comments = []
@@ -86,7 +85,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 self.tableView.reloadData()
                 debug(self.tableView)
-                //self.tableView.reloadData()
+                
                 
                 
             } catch {

@@ -149,6 +149,7 @@
 				E162604F1B682679008BC2BB /* View Controllers */,
 				E183C4B71B67972200C6F951 /* AppDelegate.swift */,
 				E183C4BE1B67972300C6F951 /* Assets.xcassets */,
+				E172127A1B6BD31F00353C94 /* README.md */,
 				E183C4C01B67972300C6F951 /* LaunchScreen.storyboard */,
 				E17CC3A81B6B808A0022576C /* Main.storyboard */,
 				E183C4C31B67972300C6F951 /* Info.plist */,
@@ -178,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				E10FF6B91B6984B2002BC1F3 /* TODO */,
-				E172127A1B6BD31F00353C94 /* README.md */,
 				E11C908C1B6BA9D000AA3370 /* Questrial-Regular.ttf */,
 			);
 			name = "Supporting files";
