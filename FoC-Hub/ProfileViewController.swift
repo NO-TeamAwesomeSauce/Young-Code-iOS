@@ -8,33 +8,17 @@
 
 import UIKit
 
-
 class ProfileViewController: UIViewController {
-    
     
     var rankImage: UIImage = UIImage()
     
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var profileRank: UILabel!
     @IBOutlet weak var joinedAgo: UILabel!
-    
-    
-    
     @IBOutlet weak var rankImg: UIImageView!
-    
     @IBOutlet weak var numberOfPosts: UILabel!
     @IBOutlet weak var numberOfVotes: UILabel!
     @IBOutlet weak var numberOfComments: UILabel!
-    
-    
-    @IBAction func goHome(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
-    
-    
-    @IBAction func refreshProfile(sender: AnyObject) {
-        fetchData(self)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +28,12 @@ class ProfileViewController: UIViewController {
         fetchData(self)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func goHome(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    @IBAction func refreshProfile(sender: AnyObject) {
+        fetchData(self)
     }
     
     @IBAction func fetchData(sender: AnyObject) {
@@ -56,27 +43,15 @@ class ProfileViewController: UIViewController {
             do {
                 let jsonObject:NSArray = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSArray
                 
-                print(jsonObject)
+                debug(jsonObject)
                 
                 
                 NSOperationQueue.mainQueue().addOperationWithBlock({
                     self.username.text = jsonObject[0]["username"] as? String
-                    //self.profileRank.text = jsonObject[0]["rank"] as? String
-                    
-                    
                     self.joinedAgo.text = "Joined " + String(jsonObject[0]["timestamp"] as! String)
-                    
-                    
                     self.numberOfPosts.text = jsonObject[0]["posts"] as? String
-                    
-                    
-                    
                     self.numberOfVotes.text = jsonObject[0]["votes"] as? String
                     self.numberOfComments.text = jsonObject[0]["comments"] as? String
-                    
-                    
-                    
-                    
                     
                     if jsonObject[0]["rank"] as? String == "bronze baby" {
                         self.rankImage = UIImage(named: "bronze.png") as UIImage!
@@ -89,28 +64,16 @@ class ProfileViewController: UIViewController {
                     } else if jsonObject[0]["rank"] as? String == "diamond darling" {
                         self.rankImage = UIImage(named: "Diamond.png") as UIImage!
                     } else {
-                        print("Rank not defined")
+                        debug("Rank not defined")
                     }
                     
-                    
-                    
                     self.rankImg.image = self.rankImage
-                    
-                
-                
                 })
                 
-
             } catch {
                print(error)
             }
         })
         task?.resume()
-
-        
     }
-    
-    
-    
-    
 }

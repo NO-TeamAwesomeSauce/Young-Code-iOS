@@ -9,33 +9,26 @@
 import UIKit
 import Darwin
 
-var alert = "None"
-
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
-    //Redirects to a new view controller handling the news feed
+    //Redirects to the category selection View Controller
     @IBAction func browsePosts(sender: AnyObject) {
         
     }
     
+    //Redirects to map on yc.norbye.com
+    //TODO: Implement native map support in app
     @IBAction func mapRedirect(sender: AnyObject) {
         UIApplication.sharedApplication().openURL(NSURL(string: "http://yc.norbye.com/includes/social.php")!)
         
     }
     
-    //Redirects the user to a webpage
+    
+    //Redirects the user to a yc.norbye.com
     @IBAction func redirectToWebpage(sender: AnyObject) {
         UIApplication.sharedApplication().openURL(NSURL(string: "http://yc.norbye.com/")!)
     }

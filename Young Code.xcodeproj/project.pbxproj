@@ -24,6 +24,7 @@
 		E1ACA4C71B691BE60059765E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ACA4C61B691BE60059765E /* LoginViewController.swift */; };
 		E1C6DFD81B67CC53006C5345 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C6DFD71B67CC53006C5345 /* CategoryViewController.swift */; };
 		E1D332F11B68DD2600142598 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D332F01B68DD2600142598 /* DetailViewController.swift */; };
+		E1EAB7A71B6D4CAA001AC2D6 /* debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EAB7A61B6D4CAA001AC2D6 /* debug.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		E1ACA4C61B691BE60059765E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1C6DFD71B67CC53006C5345 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		E1D332F01B68DD2600142598 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E1EAB7A61B6D4CAA001AC2D6 /* debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debug.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				E175FBC01B6ACD20002B9B45 /* CustomButtonOrView.swift */,
 				E17CC3A51B6AE1240022576C /* NavigationViewController.swift */,
+				E1EAB7A61B6D4CAA001AC2D6 /* debug.swift */,
 			);
 			name = "Costum Scripts";
 			sourceTree = "<group>";
@@ -141,15 +144,13 @@
 		E183C4B61B67972200C6F951 /* FoC-Hub */ = {
 			isa = PBXGroup;
 			children = (
+				E1EAB7A81B6D5788001AC2D6 /* Supporting files */,
 				E17CC3A71B6AE3280022576C /* Costum Scripts */,
 				E162604F1B682679008BC2BB /* View Controllers */,
 				E183C4B71B67972200C6F951 /* AppDelegate.swift */,
-				E10FF6B91B6984B2002BC1F3 /* TODO */,
 				E183C4BE1B67972300C6F951 /* Assets.xcassets */,
 				E183C4C01B67972300C6F951 /* LaunchScreen.storyboard */,
-				E172127A1B6BD31F00353C94 /* README.md */,
 				E17CC3A81B6B808A0022576C /* Main.storyboard */,
-				E11C908C1B6BA9D000AA3370 /* Questrial-Regular.ttf */,
 				E183C4C31B67972300C6F951 /* Info.plist */,
 			);
 			path = "FoC-Hub";
@@ -171,6 +172,16 @@
 				E183C4D91B67972300C6F951 /* Info.plist */,
 			);
 			path = "FoC-HubUITests";
+			sourceTree = "<group>";
+		};
+		E1EAB7A81B6D5788001AC2D6 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				E10FF6B91B6984B2002BC1F3 /* TODO */,
+				E172127A1B6BD31F00353C94 /* README.md */,
+				E11C908C1B6BA9D000AA3370 /* Questrial-Regular.ttf */,
+			);
+			name = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E175FBC11B6ACD20002B9B45 /* CustomButtonOrView.swift in Sources */,
+				E1EAB7A71B6D4CAA001AC2D6 /* debug.swift in Sources */,
 				E1ACA4C71B691BE60059765E /* LoginViewController.swift in Sources */,
 				E1C6DFD81B67CC53006C5345 /* CategoryViewController.swift in Sources */,
 				E183C4E81B67A01F00C6F951 /* FeedViewController.swift in Sources */,

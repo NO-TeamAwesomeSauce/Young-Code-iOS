@@ -63,37 +63,29 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let jsonObject:NSArray = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSArray
                 
             
-                //print(jsonObject.count)
-                //print(jsonObject)
+                debug(jsonObject.count)
+                debug(jsonObject)
+                debug(titleList)
                 
-                //Loops trough every item in jsonObject and saves title of each item in titleList
-                print(jsonObject)
-                
-                //print(titleList)
-                //self.tableView.reloadData()
                 NSOperationQueue.mainQueue().addOperationWithBlock({
+                    //Loops trough every item in jsonObject and saves title of each item in titleList
                     for i in 0..<jsonObject.count {
                         let comment = jsonObject[i]["text"] as! String
                         let author = jsonObject[i]["username"] as! String
                     
                         comments.append(comment)
                         commentAuthor.append(author)
-                        
-                        
-                        
-                        //print(title)
-                   
-                    
+
                         }
                     
-                        //print(comments)
-                        //print(commentAuthor)
+                        debug(comments)
+                        debug(commentAuthor)
                 
                     
                 })
                 
                 self.tableView.reloadData()
-                //print(self.tableView)
+                debug(self.tableView)
                 //self.tableView.reloadData()
                 
                 
@@ -104,7 +96,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         })
         task?.resume()
-        //print("Fetched data")
+        debug("Fetched data")
     
     }
     

@@ -11,6 +11,7 @@ import UIKit
 var jsonObject: NSArray = []
 
 class DetailViewController: UIViewController {
+    
     var postID = ""
     var hasVoted: Bool = false
     var numVotes: Int = 0
@@ -19,16 +20,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData(self)
-        
-        //titleDetailView.text = jsonObject[0]["title"] as! String
-        textviewDetailView.text = ""
-        titleDetailView.text = detailTitle
-        
     }
     
-
-    
-    //Title
     @IBOutlet weak var titleDetailView: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var timeStamp: UILabel!
@@ -36,33 +29,27 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var numberOfComments: UILabel!
     @IBOutlet weak var numberOfVotes: UILabel!
     
-    var detailTitle:String = ""
     
     
     @IBAction func refreshDetailView(sender: AnyObject) {
         fetchData(self)
-        //print("Fetched data")
+        debug("Fetched data")
     }
-    
-    
     
     @IBAction func goHome(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
    
-    
-    
     @IBAction func votePost(sender: AnyObject) {
         
             let url = NSURL(string: "http://norbye.com/-other-/Festival%20of%20Code/API/index.php?votepost=\(postID)&user=\(currentProfileID)")
             let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
                 
                 let success = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                //print(success!)
+                debug(success!)
                 
                 }
-            
-            
+        
             task?.resume()
         self.hasVoted = !self.hasVoted
         if self.hasVoted {
@@ -71,14 +58,7 @@ class DetailViewController: UIViewController {
             self.numVotes = self.numVotes - 1
         }
         updateVoteButton()
-        
     }
-    
-    
-    
-    
-    
-    
     
     @IBAction func commentRedirect(sender: AnyObject) {
         //Redirect to comment view
@@ -87,14 +67,12 @@ class DetailViewController: UIViewController {
         
     }
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showComment" {
             
             let commentViewController:CommentViewController = segue.destinationViewController as! CommentViewController
             commentViewController.postID = self.postID
         }
-
     }
  
     @IBOutlet weak var vote: UIButton!
@@ -102,18 +80,15 @@ class DetailViewController: UIViewController {
     //Asks for ID in URL
     @IBAction func fetchData(sender: AnyObject) {
         let url = NSURL(string: "http://norbye.com/-other-/Festival%20of%20Code/API/index.php?id=\(postID)&user=\(currentProfileID)")
-        //print(postID)
+        debug(postID)
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {
             (data, response, error) in
             do {
                  jsonObject = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSArray
                 
-                //print(jsonObject.count)
-                print(jsonObject)
-                //print(idChosen)
-                
-                
+                debug(jsonObject.count)
+                debug(jsonObject)
                 
                 NSOperationQueue.mainQueue().addOperationWithBlock({
                     
@@ -143,14 +118,9 @@ class DetailViewController: UIViewController {
                     self.timeStamp.text = jsonObject[0]["timestamp"] as? String
                     self.hasVoted = jsonObject[0]["hasvoted"] as? String == "true"
                     self.numVotes = Int(jsonObject[0]["votes"] as! String)!
-                    print(self.numVotes)
-                    //print(jsonObject[0]["hasvoted"] as? String)
-
+        
                     self.updateVoteButton()
                     
-
-
-
                 })
                 
             } catch {

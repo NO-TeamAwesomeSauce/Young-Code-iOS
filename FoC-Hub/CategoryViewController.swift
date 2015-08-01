@@ -16,11 +16,6 @@ class CategoryViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func goHome(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
@@ -28,7 +23,6 @@ class CategoryViewController: UIViewController {
     @IBAction func browseAllButton(sender: AnyObject) {
         categoryChosen = "Post"
     }
-    
     
     @IBAction func tutorialButton(sender: AnyObject) {
         categoryChosen = "tutorial"
@@ -41,6 +35,4 @@ class CategoryViewController: UIViewController {
     @IBAction func questionButton(sender: AnyObject) {
         categoryChosen = "question"
     }
-    
-    
 }
